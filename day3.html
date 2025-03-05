@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Objects</title>
+        <style></style>
+        <script>
+            // forEach()
+            var xx = [1,2,3,4,5];
+
+            console.log("*forEach():-");
+            xx.forEach(element => {                
+                console.log("Roll No. "+element);
+            });
+
+            //for of
+            const cars = ["BMW", "Volvo", "Mini"];
+            
+            console.log("*for of :-");
+            for (let c of cars) {                
+                console.log(c);
+            }
+
+            //JavaScript Object Methods
+            console.log("*JavaScript Object Methods:-");
+            const person = {
+                firstName: "John",
+                lastName: "Doe",
+                id: 5566,
+                fullName: function() {                    
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+            console.log("FullName: "+person.fullName()+"br");
+        </script>
+    </head>
+    <body>
+        <script>
+            var student = {
+                'name':"anjali",
+                "surname":'mistry',
+                address:'navsari',
+                friends:['abc','xyz','pqr'], //JS Object contain Array
+                teachers:[{
+                            name:'abc xyz',
+                            contact:'1234567'
+                        },{
+                            name:'pqr uvw',
+                            contact:'9876543'
+                        }], //Array of JS Object
+                sister:{ // JS Object
+                    name:'Vrunda',
+                    contact:'984756123',
+                    Hobies:['reading','writting','travelling']
+                }
+            }; // JS Object
+
+          //  console.log(student.name); //Object.member
+           // console.log(student.friends);
+           // console.log(student.friends[1]);
+           // console.log('Array Length:' + student.friends.length);
+
+            for(var i=0;i<student.teachers.length;i++){
+                console.log(student.teachers[i].name + ', ' +student.teachers[i].contact);
+            }
+
+            console.log(student.sister.Hobies[0]);
+
+            var x = ['jignesh',student]; //Array contain JS Object
+        </script>
+    </body>
+</html>
