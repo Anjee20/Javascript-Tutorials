@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript Fan On Off Effect</title>
+        <style>
+            div[data-anjali="myfanbox"]{
+                /*border: 1px dashed #000;*/
+            }
+            .btngroup > button:first-child{
+                background-color: #f44336;
+                color: white;
+                border: 2px solid black; 
+                border-radius: 5px;
+                padding: 10px;
+                width: 100px;
+                font-size: large;
+            }
+            .fanBox{
+                width: 300px;
+                height: 300px;
+                background-image: url('img/fan.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 100px auto;
+                animation-name: fan;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                /*animation-play-state:paused;*/
+            }     
+            @keyframes fan {
+                0%{
+                    transform: rotateZ(0deg);
+                }  
+                100%{
+                    transform: rotateZ(359deg);
+                }              
+            }    
+        </style>
+        <script>
+            function x(element){
+                return document.querySelector(element);
+            }
+            function startFan(speed){
+                if(speed == 0)
+                {
+                    x('#fan_box').style.animationPlayState='paused';
+
+                }
+                else if(speed == 1)
+                {
+                   x('.fanBox').style.animationPlayState='running';
+                   x('.fanBox').style.animationDuration='1s';
+                }
+                else if(speed == 2)
+                {
+                   x('[data-anjali="myfanbox"]').style.animationPlayState='running';
+                   x('[data-anjali="myfanbox"]').style.animationDuration='0.5s';
+
+                    /*
+                    document.getElementById('fan_box').style.animationPlayState='running';
+                    document.getElementById('fan_box').style.animationDuration='0.5s';
+                    */
+                }
+                else
+                {
+                    document.getElementById('fan_box').style.animationPlayState='running';
+                    document.getElementById('fan_box').style.animationDuration='0.1s';
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="fanBox" id="fan_box" data-anjali="myfanbox"></div>
+        <div style="text-align: center;" class="btngroup">
+            <button onclick="startFan(0)">STOP</button>
+            <button onclick="startFan(1)">1</button>
+            <button onclick="startFan(2)">2</button>
+            <button onclick="startFan(3)">3</button>
+        </div>
+
+    </body>
+</html>
